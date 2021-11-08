@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-button (click)="openBrowser()" expand="block" shape="round">Open Browser</ion-button>
+<ion-button (click)="captureImage()" expand="block" shape="round">Open camera</ion-button>
+<img [src]="imagen" >
+<ion-button (click)="clearImage()" expand="block" shape="round">Clear image</ion-button>
+<ion-list>
+  <ion-item *ngFor="let c of contacts" >
+    <ion-label>{{ c.displayName }}</ion-label>
+      <p> {{ c.phoneNumber }} </p>
+  </ion-item>
+</ion-list>
+</ion-content>

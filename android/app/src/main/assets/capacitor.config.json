@@ -1,0 +1,6 @@
+{
+	"appId": "com.devdactic.capacourse",
+	"appName": "capacitorCourse",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
