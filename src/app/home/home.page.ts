@@ -7,6 +7,9 @@ import { Contacts } from '@capacitor-community/contacts';
 import { DomSanitizer } from '@angular/platform-browser';
 import { isPlatform } from '@ionic/core';
 
+import { Storage } from '@capacitor/storage';
+
+
 const printCurrentPosition = async () => {
   const coordinates = await Geolocation.getCurrentPosition();
   console.log('Current position:', coordinates);
@@ -16,6 +19,13 @@ const printCurrentPosition = async () => {
 
   const wait = Geolocation.watchPosition({}, (position, err) => {
     console.log('Changed: ', position);
+  });
+};
+
+const setName = async () => {
+  await Storage.set({
+    key: 'name',
+    value: 'Max',
   });
 };
 @Component({
@@ -30,8 +40,10 @@ export class HomePage {
 
   constructor(private sanitizer: DomSanitizer) {
     printCurrentPosition();
+    Storage.set({key: 'LNG_KEY', value: 'lagn'});
     this.loadContacts();
   }
+
 
   async loadContacts() {
     if(isPlatform('android')){
