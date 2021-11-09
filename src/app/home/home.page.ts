@@ -8,6 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { isPlatform } from '@ionic/core';
 
 import { Storage } from '@capacitor/storage';
+import { OpenNativeSettings } from '@ionic-native/open-native-settings/ngx';
 
 
 const printCurrentPosition = async () => {
@@ -38,12 +39,15 @@ export class HomePage {
   imagen: any;
   contacts = [];
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer, private openNativeSettings: OpenNativeSettings) {
     printCurrentPosition();
     Storage.set({key: 'LNG_KEY', value: 'lagn'});
     this.loadContacts();
   }
 
+  openSettings() {
+    this.openNativeSettings.open('settings');
+  }
 
   async loadContacts() {
     if(isPlatform('android')){

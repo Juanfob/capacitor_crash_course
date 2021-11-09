@@ -11,10 +11,11 @@
 <ion-button (click)="captureImage()" expand="block" shape="round">Open camera</ion-button>
 <img [src]="imagen" >
 <ion-button (click)="clearImage()" expand="block" shape="round">Clear image</ion-button>
+<ion-button (click)="openSettings()" expand="block" shape="round">Open Settings</ion-button>
+
 <ion-list>
   <ion-item *ngFor="let c of contacts" >
     <ion-label>{{ c.displayName }}</ion-label>
-      <p> {{ c.phoneNumber }} </p>
   </ion-item>
 </ion-list>
 </ion-content>
